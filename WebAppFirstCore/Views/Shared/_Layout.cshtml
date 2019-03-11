@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/CSS/site.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <h1>Lexicon</h1>
+        <nav>
+            <ol>
+                <li>
+                    @Html.ActionLink("Home","Index","Home")
+                </li>
+                <li>
+                    @*@Html.ActionLink("Core", "Core")*@
+                    <a asp-controller="Home" asp-action="Core" >Core</a>
+                </li>
+                <li>
+                    <a asp-controller="Home" asp-action="Swing">Golf Swing</a>
+                </li>
+            </ol>
+        </nav>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        <p>Made by: Ulf Bengtsson &copy;</p>
+    </footer>
+</body>
+</html>
