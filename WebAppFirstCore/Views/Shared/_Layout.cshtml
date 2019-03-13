@@ -12,14 +12,17 @@
         <nav>
             <ol>
                 <li>
-                    @Html.ActionLink("Home","Index","Home")
+                    @Html.ActionLink("Home", "Index", "Home")
                 </li>
                 <li>
                     @*@Html.ActionLink("Core", "Core")*@
-                    <a asp-controller="Home" asp-action="Core" >Core</a>
+                    <a asp-controller="Home" asp-action="Core">Core</a>
                 </li>
                 <li>
                     <a asp-controller="Home" asp-action="Swing">Golf Swing</a>
+                </li>
+                <li>
+                    <a asp-controller="Bakery" asp-action="Index">Bakery</a>
                 </li>
             </ol>
         </nav>
