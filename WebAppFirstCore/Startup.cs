@@ -19,6 +19,18 @@ namespace WebAppFirstCore
             //Dependency Injection
             services.AddSingleton<ICakeService , MockCakeService>();
 
+            //Session
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                // Set a short timeout for easy testing.
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+                options.Cookie.HttpOnly = true;
+                // Make the session cookie essential
+                options.Cookie.IsEssential = true;
+            });
+
+            //MVC
             services.AddMvc();
         }
 
@@ -32,6 +44,8 @@ namespace WebAppFirstCore
 
             //app.UseDefaultFiles();
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseMvcWithDefaultRoute();
 
