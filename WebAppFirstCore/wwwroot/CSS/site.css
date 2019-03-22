@@ -59,3 +59,11 @@ footer p {
     text-align:center;
     color: white;
 }
+
+table td {
+    color:aliceblue;
+}
+
+.trGray {
+    background-color:dimgray;
+}

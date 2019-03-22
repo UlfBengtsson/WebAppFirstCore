@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="~/CSS/site.css" rel="stylesheet" />
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 </head>
 <body>
     <header>
@@ -16,16 +18,16 @@
                 </li>
                 <li>
                     @*@Html.ActionLink("Core", "Core")*@
-                    <a asp-controller="Home" asp-action="Core" >Core</a>
+                    <a asp-controller="Home" asp-action="Core">Core</a>
                 </li>
                 <li>
-                    <a asp-controller="Home" asp-action="Swing" >Golf Swing</a>
+                    <a asp-controller="Home" asp-action="Swing">Golf Swing</a>
                 </li>
                 <li>
-                    <a asp-controller="Bakery" asp-action="Index" >Bakery</a>
+                    <a asp-controller="Bakery" asp-action="Index">Bakery</a>
                 </li>
                 <li>
-                    <a asp-controller="ToDoMemo" asp-action="Index" >ToDo Session</a>
+                    <a asp-controller="ToDoMemo" asp-action="Index">ToDo Session</a>
                 </li>
             </ol>
         </nav>
@@ -33,8 +35,24 @@
     <div class="viewbody">
         @RenderBody()
     </div>
+    <div>
+        <a id="aUpdate" asp-controller="Bakery" asp-action="AJAXPartialExample" asp-route-id="0" data-target="environment-container"> Update</a>
+        <div id="environment-container"></div>
+    </div>
     <footer>
         <p>Made by: Ulf Bengtsson &copy;</p>
     </footer>
+
+    <script>
+
+        $("#aUpdate").click(function (e) {
+            e.preventDefault();
+            var _this = $(this);
+            $.get(_this.attr("href"), function (res) {
+                $('#' + _this.data("target")).html(res);
+            });
+        });
+
+    </script>
 </body>
 </html>

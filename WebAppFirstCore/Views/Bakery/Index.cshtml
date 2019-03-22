@@ -1,6 +1,8 @@
 ﻿@model List<Cake>
 @{
     ViewData["Title"] = "Bakery Index";
+
+    bool isOdd = true;
 }
 
 <h1>Bakery Index</h1>
@@ -15,10 +17,16 @@
 <table>
     @foreach (var item in Model)
     {
-    <tr>
-        <td>@item.Id</td>
-        <td>@item.Name</td>
-        <td>@item.Price</td>
-    </tr>
+        if (isOdd)
+        {
+            @await Html.PartialAsync("_Cake", item)
+            isOdd = false;
+        }
+        else
+        {
+            @await Html.PartialAsync("_Cake2", item)
+            isOdd = true;
+        }
+
     }
 </table>

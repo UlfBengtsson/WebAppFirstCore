@@ -28,5 +28,10 @@ namespace WebAppFirstCore.Controllers
 
             return View(_cakeService.AllCakes());
         }
+
+        public IActionResult AJAXPartialExample(int id)
+        {
+            return PartialView("_Cake", _cakeService.FindCake(id));
+        }
     }
 }
