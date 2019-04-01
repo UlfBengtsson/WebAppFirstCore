@@ -32,7 +32,9 @@ namespace WebAppFirstCore
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             //Dependency Injection
-            services.AddSingleton<ICakeService , MockCakeService>();
+            //services.AddSingleton<ICakeService , MockCakeService>();
+
+            services.AddScoped<ICakeService, CakeService>();
 
             //Session
             services.AddDistributedMemoryCache();

@@ -8,7 +8,7 @@ namespace WebAppFirstCore.Models
 {
     public class CakeDbContext : DbContext
     {
-        CakeDbContext(DbContextOptions<CakeDbContext> options) : base(options)
+        public CakeDbContext(DbContextOptions<CakeDbContext> options) : base(options)
         { }
         public DbSet<Cake> Cakes { get; set; }
     }
